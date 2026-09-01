@@ -1,5 +1,5 @@
 {
-  "generator": "Karingset 2.0",
+  "generator": "Karingset 2.1",
   "source": "https://raw.githubusercontent.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever/release/lazy.conf",
   "source_version": 5,
   "services": {
@@ -31,6 +31,9 @@
         "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Apple/Apple.list"
       ],
       "counts": {
+        "domain": 272,
+        "domain_suffix": 1551,
+        "domain_keyword": 7,
         "ip_cidr": 10
       }
     },
@@ -60,6 +63,9 @@
         "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/China/China.list"
       ],
       "counts": {
+        "domain": 17,
+        "domain_suffix": 3674,
+        "domain_keyword": 9,
         "ip_cidr": 17
       }
     },
@@ -172,6 +178,9 @@
         "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Global/Global.list"
       ],
       "counts": {
+        "domain": 784,
+        "domain_suffix": 34790,
+        "domain_keyword": 36,
         "ip_cidr": 112
       }
     },
@@ -360,7 +369,10 @@
       "sources": [
         "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/WeChat/WeChat.list"
       ],
-      "counts": {}
+      "counts": {
+        "domain": 18,
+        "domain_suffix": 22
+      }
     },
     "X": {
       "policy": "PROXY",
@@ -549,8 +561,8 @@
       "name": "Apple",
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Apple/Apple.list",
       "policy": "DIRECT",
-      "rules": 10,
-      "skipped": 1871
+      "rules": 1840,
+      "skipped": 41
     },
     {
       "name": "BiliBili",
@@ -584,8 +596,8 @@
       "name": "WeChat",
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/WeChat/WeChat.list",
       "policy": "DIRECT",
-      "rules": 0,
-      "skipped": 43
+      "rules": 40,
+      "skipped": 3
     },
     {
       "name": "Sina",
@@ -626,15 +638,15 @@
       "name": "Global",
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Global/Global.list",
       "policy": "PROXY",
-      "rules": 112,
-      "skipped": 35660
+      "rules": 35722,
+      "skipped": 50
     },
     {
       "name": "China",
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/China/China.list",
       "policy": "DIRECT",
-      "rules": 17,
-      "skipped": 3736
+      "rules": 3717,
+      "skipped": 36
     },
     {
       "name": "LAN",
