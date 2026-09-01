@@ -6,7 +6,7 @@ from urllib.parse import urlparse
 ROOT=Path(__file__).resolve().parents[1]; SRC=ROOT/'source'; SRS=ROOT/'srs'
 SRC.mkdir(exist_ok=True); SRS.mkdir(exist_ok=True)
 LAZY='https://raw.githubusercontent.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever/release/lazy.conf'
-UA='Karingset/2.0 (+https://github.com/libraprince/Karingset)'
+UA='Karingset/2.1 (+https://github.com/libraprince/Karingset)'
 EXTRA={
 'OpenAI':('https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/OpenAI/OpenAI.list','PROXY'),
 'Gemini':('https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Gemini/Gemini.list','PROXY'),
@@ -29,11 +29,19 @@ def add(line,b):
  p=[x.strip() for x in s.split(',')]; typ=p[0].upper()
  if len(p)<2:return False
  v=p[1]
- if typ in ('DOMAIN','DOMAIN-SUFFIX','DOMAIN-KEYWORD','DOMAIN-REGEX'):
-  b[{'DOMAIN':'domain','DOMAIN-SUFFIX':'domain_suffix','DOMAIN-KEYWORD':'domain_keyword','DOMAIN-REGEX':'domain_regex'}[typ]].add(v.lower());return True
+ # Shadowrocket / QuantumultX / Clash style host rules.
+ if typ in ('DOMAIN','HOST'):
+  b['domain'].add(v.lower());return True
+ if typ in ('DOMAIN-SUFFIX','HOST-SUFFIX'):
+  b['domain_suffix'].add(v.lower());return True
+ if typ in ('DOMAIN-KEYWORD','HOST-KEYWORD'):
+  b['domain_keyword'].add(v.lower());return True
+ if typ=='DOMAIN-REGEX':
+  b['domain_regex'].add(v);return True
  if typ=='DOMAIN-WILDCARD':
   b['domain_regex'].add('^'+re.escape(v).replace(r'\*','.*').replace(r'\?','.')+'$');return True
- if typ in ('IP-CIDR','IP-CIDR6'):b['ip_cidr' if typ=='IP-CIDR' else 'ip_cidr6'].add(v);return True
+ if typ in ('IP-CIDR','IP-CIDR6'):
+  b['ip_cidr' if typ=='IP-CIDR' else 'ip_cidr6'].add(v);return True
  return False
 def merge(a,b):
  for k in KEYS:a[k].update(b[k])
@@ -80,7 +88,6 @@ def main():
   else:
    pol=p[-1].upper().split(',')[0]
    if pol in agg and add(l,agg[pol]):
-    # Keep important inline AI rules in AI.srs as well as the aggregate.
     if pol=='PROXY' and any(x in l.lower() for x in ('x.ai','grok.com','gemini.google.com','ai.google.dev','bard.google.com','apple-relay','guzzoni.apple.com','cp4.cloudflare.com','apps.mzstatic.com','smoot.apple.com')):
      ai=services.setdefault('AI',{'policy':'PROXY','bucket':empty(),'sources':[]});add(l,ai['bucket'])
     elif pol=='PROXY' and any(x in l.lower() for x in ('litix.io','discomax.com','brightline.tv')):
@@ -89,7 +96,7 @@ def main():
  for n,v in services.items():
   if v['bucket']:write(n,v['bucket'])
  for p,b in agg.items():write(p.lower(),b)
- manifest={'generator':'Karingset 2.0','source':LAZY,'source_version':5,'services':{n:{'policy':v['policy'],'sources':v['sources'],'counts':{k:len(x) for k,x in v['bucket'].items() if x}} for n,v in sorted(services.items())},'rule_sets':stats}
+ manifest={'generator':'Karingset 2.1','source':LAZY,'source_version':5,'services':{n:{'policy':v['policy'],'sources':v['sources'],'counts':{k:len(x) for k,x in v['bucket'].items() if x}} for n,v in sorted(services.items())},'rule_sets':stats}
  (SRC/'manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
  print(json.dumps({'services':len(services),'proxy':sum(map(len,agg['PROXY'].values())),'direct':sum(map(len,agg['DIRECT'].values())),'reject':sum(map(len,agg['REJECT'].values()))},ensure_ascii=False,indent=2))
 if __name__=='__main__':main()
