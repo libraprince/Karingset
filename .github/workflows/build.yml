@@ -1,0 +1,61 @@
+name: Build Karing SRS
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '15 0 * * *'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Generate source JSON
+        run: python scripts/build.py
+
+      - name: Install latest sing-box
+        shell: bash
+        run: |
+          set -euo pipefail
+          tag=$(curl -fsSL https://api.github.com/repos/SagerNet/sing-box/releases/latest | jq -r .tag_name)
+          version=${tag#v}
+          asset="sing-box-${version}-linux-amd64.tar.gz"
+          curl -fL "https://github.com/SagerNet/sing-box/releases/download/${tag}/${asset}" -o /tmp/sing-box.tgz
+          tar -xzf /tmp/sing-box.tgz -C /tmp
+          install -m 0755 "/tmp/sing-box-${version}-linux-amd64/sing-box" /usr/local/bin/sing-box
+          sing-box version
+
+      - name: Compile SRS
+        run: |
+          rm -rf srs
+          mkdir -p srs
+          for f in source/proxy.json source/direct.json source/reject.json; do
+            name=$(basename "$f" .json)
+            sing-box rule-set compile --output "srs/${name}.srs" "$f"
+          done
+          cp source/manifest.json srs/manifest.json
+          cp source/lazy.conf srs/lazy.conf
+
+      - name: Commit generated rule sets
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add source srs
+          if git diff --cached --quiet; then
+            echo 'No changes.'
+            exit 0
+          fi
+          git commit -m 'Update Karing SRS from Johnshall lazy rules'
+          git push
