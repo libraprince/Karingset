@@ -7,9 +7,6 @@ on:
       - 'scripts/**'
       - '.github/workflows/build.yml'
       - 'README.md'
-    paths-ignore:
-      - 'source/**'
-      - 'srs/**'
   schedule:
     - cron: '15 0 * * *'
 
