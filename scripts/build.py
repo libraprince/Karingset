@@ -1,75 +1,95 @@
 #!/usr/bin/env python3
-import json, re, urllib.request
+import json,re,urllib.request
 from pathlib import Path
 from urllib.parse import urlparse
 
-LAZY_URL='https://raw.githubusercontent.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever/release/lazy.conf'
-ROOT=Path(__file__).resolve().parents[1]
-SRC=ROOT/'source'; SRS=ROOT/'srs'
+ROOT=Path(__file__).resolve().parents[1]; SRC=ROOT/'source'; SRS=ROOT/'srs'
 SRC.mkdir(exist_ok=True); SRS.mkdir(exist_ok=True)
-
-UA='Karingset/1.0 (+https://github.com/libraprince/Karingset)'
-def get(url):
-    req=urllib.request.Request(url,headers={'User-Agent':UA})
-    with urllib.request.urlopen(req,timeout=30) as r: return r.read().decode('utf-8','ignore')
-
-def add(rule, bucket):
-    rule=rule.strip()
-    if not rule or rule.startswith(('#','//',';')): return
-    parts=[x.strip() for x in rule.split(',')]
-    typ=parts[0].upper()
-    if typ in ('DOMAIN','DOMAIN-SUFFIX','DOMAIN-KEYWORD','DOMAIN-REGEX') and len(parts)>=2:
-        key={'DOMAIN':'domain','DOMAIN-SUFFIX':'domain_suffix','DOMAIN-KEYWORD':'domain_keyword','DOMAIN-REGEX':'domain_regex'}[typ]
-        bucket[key].add(parts[1].lower())
-    elif typ in ('IP-CIDR','IP-CIDR6') and len(parts)>=2:
-        key='ip_cidr' if typ=='IP-CIDR' else 'ip_cidr6'
-        # Shadowrocket no-resolve is irrelevant to a compiled IP rule set.
-        bucket[key].add(parts[1])
-
-def empty(): return {k:set() for k in ('domain','domain_suffix','domain_keyword','domain_regex','ip_cidr','ip_cidr6')}
-
+LAZY='https://raw.githubusercontent.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever/release/lazy.conf'
+UA='Karingset/2.0 (+https://github.com/libraprince/Karingset)'
+EXTRA={
+'OpenAI':('https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/OpenAI/OpenAI.list','PROXY'),
+'Gemini':('https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Gemini/Gemini.list','PROXY'),
+'Claude':('https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Claude/Claude.list','PROXY'),
+'Copilot':('https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Copilot/Copilot.list','PROXY')}
+ALIASES={'Twitter':'X','Lan':'LAN'}
+KEYS=('domain','domain_suffix','domain_keyword','domain_regex','ip_cidr','ip_cidr6')
+def empty(): return {k:set() for k in KEYS}
+def get(u):
+ r=urllib.request.Request(u,headers={'User-Agent':UA})
+ with urllib.request.urlopen(r,timeout=60) as x:return x.read().decode('utf-8','ignore')
+def add(line,b):
+ s=line.strip()
+ if not s or s.startswith(('#','//',';')):return False
+ if ',' not in s:
+  if re.fullmatch(r'(?:\d{1,3}\.){3}\d{1,3}(?:/\d{1,2})?',s):b['ip_cidr'].add(s);return True
+  if ':' in s and re.fullmatch(r'[0-9A-Fa-f:]+(?:/\d{1,3})?',s):b['ip_cidr6'].add(s);return True
+  if re.fullmatch(r'[A-Za-z0-9*_.-]+\.[A-Za-z]{2,}',s):b['domain_suffix'].add(s.lstrip('*.').lower());return True
+  return False
+ p=[x.strip() for x in s.split(',')]; typ=p[0].upper()
+ if len(p)<2:return False
+ v=p[1]
+ if typ in ('DOMAIN','DOMAIN-SUFFIX','DOMAIN-KEYWORD','DOMAIN-REGEX'):
+  b[{'DOMAIN':'domain','DOMAIN-SUFFIX':'domain_suffix','DOMAIN-KEYWORD':'domain_keyword','DOMAIN-REGEX':'domain_regex'}[typ]].add(v.lower());return True
+ if typ=='DOMAIN-WILDCARD':
+  b['domain_regex'].add('^'+re.escape(v).replace(r'\*','.*').replace(r'\?','.')+'$');return True
+ if typ in ('IP-CIDR','IP-CIDR6'):b['ip_cidr' if typ=='IP-CIDR' else 'ip_cidr6'].add(v);return True
+ return False
+def merge(a,b):
+ for k in KEYS:a[k].update(b[k])
+def name(u):
+ n=Path(urlparse(u).path.rstrip('/')).stem or 'Unknown';return ALIASES.get(n,re.sub(r'[^A-Za-z0-9_-]','',n))
+def parse(t):
+ b=empty();skip=0
+ for l in t.splitlines():
+  if not add(l,b) and l.strip() and not l.strip().startswith(('#','//',';')):skip+=1
+ return b,skip
+def write(n,b):
+ r={k:sorted(v) for k,v in b.items() if v};out={'version':5,'rules':[r] if r else []}
+ (SRC/f'{n}.json').write_text(json.dumps(out,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 def main():
-    lazy=get(LAZY_URL)
-    (SRC/'lazy.conf').write_text(lazy,encoding='utf-8')
-    buckets={'PROXY':empty(),'DIRECT':empty(),'REJECT':empty()}
-    seen=set(); stats=[]
-    in_rules=False
-    for raw in lazy.splitlines():
-        line=raw.strip()
-        if line.startswith('['): in_rules=line.lower()=='[rule]'; continue
-        if not in_rules or not line or line.startswith('#'): continue
-        p=[x.strip() for x in line.split(',')]
-        if len(p)<2: continue
-        typ=p[0].upper()
-        if typ=='RULE-SET' and len(p)>=3:
-            url=p[1]; policy=p[2].upper()
-            # Policy names can contain parameters; use the first token.
-            policy=policy.split(',')[0]
-            if policy not in buckets: continue
-            if url in seen: continue
-            seen.add(url)
-            try:
-                text=get(url)
-                b=buckets[policy]; count=0
-                for r in text.splitlines():
-                    before=sum(len(v) for v in b.values()); add(r,b); after=sum(len(v) for v in b.values()); count += max(0,after-before)
-                stats.append({'url':url,'policy':policy,'rules_added':count})
-            except Exception as e:
-                stats.append({'url':url,'policy':policy,'error':str(e)})
-        else:
-            # Preserve ordinary domain/IP rules with their policy.
-            policy=p[-1].upper().split(',')[0]
-            if policy in buckets: add(line,buckets[policy])
-
-    for policy,b in buckets.items():
-        out={'version':3,'rules':[]}
-        # One rule object keeps the generated source compact and compatible with sing-box rule-set compile.
-        r={}
-        for k,v in b.items():
-            if v: r[k]=sorted(v)
-        if r: out['rules'].append(r)
-        (SRC/f'{policy.lower()}.json').write_text(json.dumps(out,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-    (SRC/'manifest.json').write_text(json.dumps({'source':LAZY_URL,'rule_sets':stats},ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-    print(json.dumps({'source_rule_sets':len(stats),'proxy':sum(map(len,buckets['PROXY'].values())),'direct':sum(map(len,buckets['DIRECT'].values())),'reject':sum(map(len,buckets['REJECT'].values()))},indent=2))
-
-if __name__=='__main__': main()
+ lazy=get(LAZY);(SRC/'lazy.conf').write_text(lazy,encoding='utf-8')
+ agg={x:empty() for x in ('PROXY','DIRECT','REJECT')}; services={};seen=set();stats=[]
+ def load(n,u,p):
+  if u in seen:return
+  seen.add(u)
+  try:
+   b,skip=parse(get(u));services.setdefault(n,{'policy':p,'bucket':empty(),'sources':[]});merge(services[n]['bucket'],b);services[n]['sources'].append(u);merge(agg[p],b);stats.append({'name':n,'url':u,'policy':p,'rules':sum(map(len,b.values())),'skipped':skip})
+  except Exception as e:stats.append({'name':n,'url':u,'policy':p,'error':str(e)})
+ in_rules=False
+ for raw in lazy.splitlines():
+  l=raw.strip()
+  if l.startswith('['):in_rules=l.lower()=='[rule]';continue
+  if not in_rules or not l or l.startswith('#'):continue
+  p=[x.strip() for x in l.split(',')]
+  if len(p)<2:continue
+  typ=p[0].upper()
+  if typ=='RULE-SET' and len(p)>=3:
+   pol=p[2].upper().split(',')[0]
+   if pol in agg:load(name(p[1]),p[1],pol)
+  elif typ=='DOMAIN-SET' and len(p)>=3:
+   pol=p[2].upper().split(',')[0]
+   if pol in agg and p[1] not in seen:
+    seen.add(p[1]);b=empty()
+    try:
+     for d in get(p[1]).splitlines():
+      d=d.strip()
+      if d and not d.startswith('#'):b['domain_suffix'].add(d.lstrip('.').lower())
+     n=name(p[1]);services[n]={'policy':pol,'bucket':b,'sources':[p[1]]};merge(agg[pol],b)
+    except Exception as e:stats.append({'name':name(p[1]),'url':p[1],'policy':pol,'error':str(e)})
+  else:
+   pol=p[-1].upper().split(',')[0]
+   if pol in agg and add(l,agg[pol]):
+    # Keep important inline AI rules in AI.srs as well as the aggregate.
+    if pol=='PROXY' and any(x in l.lower() for x in ('x.ai','grok.com','gemini.google.com','ai.google.dev','bard.google.com','apple-relay','guzzoni.apple.com','cp4.cloudflare.com','apps.mzstatic.com','smoot.apple.com')):
+     ai=services.setdefault('AI',{'policy':'PROXY','bucket':empty(),'sources':[]});add(l,ai['bucket'])
+    elif pol=='PROXY' and any(x in l.lower() for x in ('litix.io','discomax.com','brightline.tv')):
+     st=services.setdefault('Streaming',{'policy':'PROXY','bucket':empty(),'sources':[]});add(l,st['bucket'])
+ for n,(u,p) in EXTRA.items():load(n,u,p)
+ for n,v in services.items():
+  if v['bucket']:write(n,v['bucket'])
+ for p,b in agg.items():write(p.lower(),b)
+ manifest={'generator':'Karingset 2.0','source':LAZY,'source_version':5,'services':{n:{'policy':v['policy'],'sources':v['sources'],'counts':{k:len(x) for k,x in v['bucket'].items() if x}} for n,v in sorted(services.items())},'rule_sets':stats}
+ (SRC/'manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+ print(json.dumps({'services':len(services),'proxy':sum(map(len,agg['PROXY'].values())),'direct':sum(map(len,agg['DIRECT'].values())),'reject':sum(map(len,agg['REJECT'].values()))},ensure_ascii=False,indent=2))
+if __name__=='__main__':main()
