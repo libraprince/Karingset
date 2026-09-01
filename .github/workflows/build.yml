@@ -2,6 +2,14 @@ name: Build Karing SRS
 
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - 'scripts/**'
+      - '.github/workflows/build.yml'
+      - 'README.md'
+    paths-ignore:
+      - 'source/**'
+      - 'srs/**'
   schedule:
     - cron: '15 0 * * *'
 
@@ -35,16 +43,23 @@ jobs:
           install -m 0755 "/tmp/sing-box-${version}-linux-amd64/sing-box" /usr/local/bin/sing-box
           sing-box version
 
-      - name: Compile SRS
+      - name: Compile every source rule set
+        shell: bash
         run: |
+          set -euo pipefail
           rm -rf srs
           mkdir -p srs
-          for f in source/proxy.json source/direct.json source/reject.json; do
+          shopt -s nullglob
+          for f in source/*.json; do
             name=$(basename "$f" .json)
+            case "$name" in
+              manifest) continue ;;
+            esac
             sing-box rule-set compile --output "srs/${name}.srs" "$f"
           done
           cp source/manifest.json srs/manifest.json
           cp source/lazy.conf srs/lazy.conf
+          ls -lh srs
 
       - name: Commit generated rule sets
         shell: bash
@@ -57,5 +72,5 @@ jobs:
             echo 'No changes.'
             exit 0
           fi
-          git commit -m 'Update Karing SRS from Johnshall lazy rules'
+          git commit -m 'Update Karing SRS from upstream rules'
           git push
