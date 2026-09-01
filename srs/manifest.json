@@ -1,0 +1,675 @@
+{
+  "generator": "Karingset 2.0",
+  "source": "https://raw.githubusercontent.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever/release/lazy.conf",
+  "source_version": 5,
+  "services": {
+    "AI": {
+      "policy": "PROXY",
+      "sources": [
+        "https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rule/AI.txt"
+      ],
+      "counts": {
+        "domain": 22,
+        "domain_suffix": 23,
+        "domain_keyword": 4
+      }
+    },
+    "Amazon": {
+      "policy": "PROXY",
+      "sources": [
+        "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Amazon/Amazon.list"
+      ],
+      "counts": {
+        "domain_suffix": 186,
+        "domain_keyword": 1,
+        "ip_cidr": 15
+      }
+    },
+    "Apple": {
+      "policy": "DIRECT",
+      "sources": [
+        "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Apple/Apple.list"
+      ],
+      "counts": {
+        "ip_cidr": 10
+      }
+    },
+    "Baidu": {
+      "policy": "DIRECT",
+      "sources": [
+        "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Baidu/Baidu.list"
+      ],
+      "counts": {
+        "domain_suffix": 251
+      }
+    },
+    "BiliBili": {
+      "policy": "DIRECT",
+      "sources": [
+        "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/BiliBili/BiliBili.list"
+      ],
+      "counts": {
+        "domain": 53,
+        "domain_suffix": 62,
+        "ip_cidr": 8
+      }
+    },
+    "China": {
+      "policy": "DIRECT",
+      "sources": [
+        "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/China/China.list"
+      ],
+      "counts": {
+        "ip_cidr": 17
+      }
+    },
+    "Claude": {
+      "policy": "PROXY",
+      "sources": [
+        "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Claude/Claude.list"
+      ],
+      "counts": {
+        "domain": 1,
+        "domain_suffix": 2
+      }
+    },
+    "Copilot": {
+      "policy": "PROXY",
+      "sources": [
+        "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Copilot/Copilot.list"
+      ],
+      "counts": {
+        "domain": 20,
+        "domain_suffix": 26,
+        "domain_keyword": 1,
+        "ip_cidr": 2
+      }
+    },
+    "Disney": {
+      "policy": "PROXY",
+      "sources": [
+        "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Disney/Disney.list"
+      ],
+      "counts": {
+        "domain_suffix": 172
+      }
+    },
+    "DouBan": {
+      "policy": "DIRECT",
+      "sources": [
+        "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/DouBan/DouBan.list"
+      ],
+      "counts": {
+        "domain_suffix": 3
+      }
+    },
+    "DouYin": {
+      "policy": "DIRECT",
+      "sources": [
+        "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/DouYin/DouYin.list"
+      ],
+      "counts": {
+        "domain": 2,
+        "domain_suffix": 11
+      }
+    },
+    "Epic": {
+      "policy": "PROXY",
+      "sources": [
+        "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Epic/Epic.list"
+      ],
+      "counts": {
+        "domain_suffix": 15
+      }
+    },
+    "Facebook": {
+      "policy": "PROXY",
+      "sources": [
+        "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Facebook/Facebook.list"
+      ],
+      "counts": {
+        "domain_suffix": 544,
+        "domain_keyword": 2,
+        "ip_cidr": 23
+      }
+    },
+    "Game": {
+      "policy": "PROXY",
+      "sources": [
+        "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Game/Game.list"
+      ],
+      "counts": {
+        "domain": 8,
+        "domain_suffix": 539,
+        "domain_keyword": 4,
+        "ip_cidr": 46
+      }
+    },
+    "Gemini": {
+      "policy": "PROXY",
+      "sources": [
+        "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Gemini/Gemini.list"
+      ],
+      "counts": {
+        "domain": 3,
+        "domain_suffix": 7,
+        "domain_keyword": 3
+      }
+    },
+    "GitHub": {
+      "policy": "PROXY",
+      "sources": [
+        "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/GitHub/GitHub.list"
+      ],
+      "counts": {
+        "domain_suffix": 30,
+        "domain_keyword": 1
+      }
+    },
+    "Global": {
+      "policy": "PROXY",
+      "sources": [
+        "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Global/Global.list"
+      ],
+      "counts": {
+        "ip_cidr": 112
+      }
+    },
+    "Google": {
+      "policy": "PROXY",
+      "sources": [
+        "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Google/Google.list"
+      ],
+      "counts": {
+        "domain": 1,
+        "domain_suffix": 684,
+        "domain_keyword": 5,
+        "ip_cidr": 5
+      }
+    },
+    "HBO": {
+      "policy": "PROXY",
+      "sources": [
+        "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/HBO/HBO.list"
+      ],
+      "counts": {
+        "domain_suffix": 47
+      }
+    },
+    "LAN": {
+      "policy": "DIRECT",
+      "sources": [
+        "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Lan/Lan.list"
+      ],
+      "counts": {
+        "domain": 7,
+        "domain_suffix": 115,
+        "ip_cidr": 18
+      }
+    },
+    "Microsoft": {
+      "policy": "PROXY",
+      "sources": [
+        "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Microsoft/Microsoft.list"
+      ],
+      "counts": {
+        "domain": 1,
+        "domain_suffix": 663,
+        "domain_keyword": 4
+      }
+    },
+    "NetEaseMusic": {
+      "policy": "DIRECT",
+      "sources": [
+        "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/NetEaseMusic/NetEaseMusic.list"
+      ],
+      "counts": {
+        "domain": 1,
+        "domain_suffix": 9,
+        "ip_cidr": 18
+      }
+    },
+    "Netflix": {
+      "policy": "PROXY",
+      "sources": [
+        "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Netflix/Netflix.list"
+      ],
+      "counts": {
+        "domain": 3,
+        "domain_suffix": 30,
+        "domain_keyword": 4,
+        "ip_cidr": 1119
+      }
+    },
+    "Nintendo": {
+      "policy": "PROXY",
+      "sources": [
+        "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Nintendo/Nintendo.list"
+      ],
+      "counts": {
+        "domain_suffix": 125,
+        "ip_cidr": 1
+      }
+    },
+    "OpenAI": {
+      "policy": "PROXY",
+      "sources": [
+        "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/OpenAI/OpenAI.list"
+      ],
+      "counts": {
+        "domain": 7,
+        "domain_suffix": 24,
+        "domain_keyword": 1,
+        "ip_cidr": 2
+      }
+    },
+    "PayPal": {
+      "policy": "PROXY",
+      "sources": [
+        "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/PayPal/PayPal.list"
+      ],
+      "counts": {
+        "domain_suffix": 246,
+        "domain_keyword": 1
+      }
+    },
+    "Sina": {
+      "policy": "DIRECT",
+      "sources": [
+        "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Sina/Sina.list"
+      ],
+      "counts": {
+        "domain_suffix": 107,
+        "domain_keyword": 1
+      }
+    },
+    "Sony": {
+      "policy": "PROXY",
+      "sources": [
+        "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Sony/Sony.list"
+      ],
+      "counts": {
+        "domain": 1,
+        "domain_suffix": 115
+      }
+    },
+    "Spotify": {
+      "policy": "PROXY",
+      "sources": [
+        "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Spotify/Spotify.list"
+      ],
+      "counts": {
+        "domain": 6,
+        "domain_suffix": 20,
+        "domain_keyword": 1,
+        "ip_cidr": 2
+      }
+    },
+    "Steam": {
+      "policy": "PROXY",
+      "sources": [
+        "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Steam/Steam.list"
+      ],
+      "counts": {
+        "domain_suffix": 51,
+        "domain_keyword": 3
+      }
+    },
+    "SteamCN": {
+      "policy": "PROXY",
+      "sources": [
+        "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/SteamCN/SteamCN.list"
+      ],
+      "counts": {
+        "domain": 12,
+        "domain_suffix": 5
+      }
+    },
+    "Streaming": {
+      "policy": "PROXY",
+      "sources": [],
+      "counts": {
+        "domain_suffix": 3
+      }
+    },
+    "Telegram": {
+      "policy": "PROXY",
+      "sources": [
+        "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Telegram/Telegram.list"
+      ],
+      "counts": {
+        "domain": 2,
+        "domain_suffix": 22,
+        "domain_keyword": 1,
+        "ip_cidr": 10
+      }
+    },
+    "TikTok": {
+      "policy": "PROXY",
+      "sources": [
+        "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/TikTok/TikTok.list"
+      ],
+      "counts": {
+        "domain": 4,
+        "domain_suffix": 25,
+        "domain_keyword": 2
+      }
+    },
+    "WeChat": {
+      "policy": "DIRECT",
+      "sources": [
+        "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/WeChat/WeChat.list"
+      ],
+      "counts": {}
+    },
+    "X": {
+      "policy": "PROXY",
+      "sources": [
+        "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Twitter/Twitter.list"
+      ],
+      "counts": {
+        "domain_suffix": 26,
+        "domain_keyword": 1,
+        "ip_cidr": 6
+      }
+    },
+    "XiaoHongShu": {
+      "policy": "DIRECT",
+      "sources": [
+        "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/XiaoHongShu/XiaoHongShu.list"
+      ],
+      "counts": {
+        "domain_suffix": 4
+      }
+    },
+    "YouTube": {
+      "policy": "PROXY",
+      "sources": [
+        "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/YouTube/YouTube.list"
+      ],
+      "counts": {
+        "domain_suffix": 179,
+        "domain_keyword": 1,
+        "ip_cidr": 3
+      }
+    },
+    "Zhihu": {
+      "policy": "DIRECT",
+      "sources": [
+        "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Zhihu/Zhihu.list"
+      ],
+      "counts": {
+        "domain_suffix": 2,
+        "ip_cidr": 5
+      }
+    }
+  },
+  "rule_sets": [
+    {
+      "name": "AI",
+      "url": "https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rule/AI.txt",
+      "policy": "PROXY",
+      "rules": 49,
+      "skipped": 0
+    },
+    {
+      "name": "YouTube",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/YouTube/YouTube.list",
+      "policy": "PROXY",
+      "rules": 183,
+      "skipped": 7
+    },
+    {
+      "name": "Netflix",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Netflix/Netflix.list",
+      "policy": "PROXY",
+      "rules": 1156,
+      "skipped": 1
+    },
+    {
+      "name": "Disney",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Disney/Disney.list",
+      "policy": "PROXY",
+      "rules": 172,
+      "skipped": 1
+    },
+    {
+      "name": "HBO",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/HBO/HBO.list",
+      "policy": "PROXY",
+      "rules": 47,
+      "skipped": 2
+    },
+    {
+      "name": "Spotify",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Spotify/Spotify.list",
+      "policy": "PROXY",
+      "rules": 29,
+      "skipped": 1
+    },
+    {
+      "name": "Telegram",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Telegram/Telegram.list",
+      "policy": "PROXY",
+      "rules": 35,
+      "skipped": 5
+    },
+    {
+      "name": "PayPal",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/PayPal/PayPal.list",
+      "policy": "PROXY",
+      "rules": 247,
+      "skipped": 1
+    },
+    {
+      "name": "X",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Twitter/Twitter.list",
+      "policy": "PROXY",
+      "rules": 33,
+      "skipped": 0
+    },
+    {
+      "name": "Facebook",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Facebook/Facebook.list",
+      "policy": "PROXY",
+      "rules": 569,
+      "skipped": 1
+    },
+    {
+      "name": "Amazon",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Amazon/Amazon.list",
+      "policy": "PROXY",
+      "rules": 202,
+      "skipped": 3
+    },
+    {
+      "name": "Sony",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Sony/Sony.list",
+      "policy": "PROXY",
+      "rules": 116,
+      "skipped": 0
+    },
+    {
+      "name": "Nintendo",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Nintendo/Nintendo.list",
+      "policy": "PROXY",
+      "rules": 126,
+      "skipped": 0
+    },
+    {
+      "name": "Epic",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Epic/Epic.list",
+      "policy": "PROXY",
+      "rules": 15,
+      "skipped": 0
+    },
+    {
+      "name": "SteamCN",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/SteamCN/SteamCN.list",
+      "policy": "PROXY",
+      "rules": 17,
+      "skipped": 0
+    },
+    {
+      "name": "Steam",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Steam/Steam.list",
+      "policy": "PROXY",
+      "rules": 54,
+      "skipped": 0
+    },
+    {
+      "name": "Game",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Game/Game.list",
+      "policy": "PROXY",
+      "rules": 597,
+      "skipped": 0
+    },
+    {
+      "name": "GitHub",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/GitHub/GitHub.list",
+      "policy": "PROXY",
+      "rules": 31,
+      "skipped": 0
+    },
+    {
+      "name": "Microsoft",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Microsoft/Microsoft.list",
+      "policy": "PROXY",
+      "rules": 668,
+      "skipped": 3
+    },
+    {
+      "name": "Google",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Google/Google.list",
+      "policy": "PROXY",
+      "rules": 695,
+      "skipped": 3
+    },
+    {
+      "name": "Apple",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Apple/Apple.list",
+      "policy": "DIRECT",
+      "rules": 10,
+      "skipped": 1871
+    },
+    {
+      "name": "BiliBili",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/BiliBili/BiliBili.list",
+      "policy": "DIRECT",
+      "rules": 123,
+      "skipped": 4
+    },
+    {
+      "name": "NetEaseMusic",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/NetEaseMusic/NetEaseMusic.list",
+      "policy": "DIRECT",
+      "rules": 28,
+      "skipped": 2
+    },
+    {
+      "name": "Baidu",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Baidu/Baidu.list",
+      "policy": "DIRECT",
+      "rules": 251,
+      "skipped": 0
+    },
+    {
+      "name": "DouBan",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/DouBan/DouBan.list",
+      "policy": "DIRECT",
+      "rules": 3,
+      "skipped": 0
+    },
+    {
+      "name": "WeChat",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/WeChat/WeChat.list",
+      "policy": "DIRECT",
+      "rules": 0,
+      "skipped": 43
+    },
+    {
+      "name": "Sina",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Sina/Sina.list",
+      "policy": "DIRECT",
+      "rules": 108,
+      "skipped": 0
+    },
+    {
+      "name": "Zhihu",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Zhihu/Zhihu.list",
+      "policy": "DIRECT",
+      "rules": 7,
+      "skipped": 0
+    },
+    {
+      "name": "XiaoHongShu",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/XiaoHongShu/XiaoHongShu.list",
+      "policy": "DIRECT",
+      "rules": 4,
+      "skipped": 0
+    },
+    {
+      "name": "DouYin",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/DouYin/DouYin.list",
+      "policy": "DIRECT",
+      "rules": 13,
+      "skipped": 0
+    },
+    {
+      "name": "TikTok",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/TikTok/TikTok.list",
+      "policy": "PROXY",
+      "rules": 31,
+      "skipped": 1
+    },
+    {
+      "name": "Global",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Global/Global.list",
+      "policy": "PROXY",
+      "rules": 112,
+      "skipped": 35660
+    },
+    {
+      "name": "China",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/China/China.list",
+      "policy": "DIRECT",
+      "rules": 17,
+      "skipped": 3736
+    },
+    {
+      "name": "LAN",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Lan/Lan.list",
+      "policy": "DIRECT",
+      "rules": 140,
+      "skipped": 0
+    },
+    {
+      "name": "OpenAI",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/OpenAI/OpenAI.list",
+      "policy": "PROXY",
+      "rules": 34,
+      "skipped": 1
+    },
+    {
+      "name": "Gemini",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Gemini/Gemini.list",
+      "policy": "PROXY",
+      "rules": 13,
+      "skipped": 0
+    },
+    {
+      "name": "Claude",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Claude/Claude.list",
+      "policy": "PROXY",
+      "rules": 3,
+      "skipped": 0
+    },
+    {
+      "name": "Copilot",
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Copilot/Copilot.list",
+      "policy": "PROXY",
+      "rules": 49,
+      "skipped": 2
+    }
+  ]
+}
