@@ -14,9 +14,21 @@ Karing / sing-box Rule Set generator based on Johnshall Shadowrocket `lazy.conf`
   - `reject.srs` — REJECT rules if present
 - The workflow also keeps `source/` JSON files for inspection.
 
-## Karing URLs
+## Karing one-file diversion preset
 
-After the repository is made **Public**, use:
+Use this preset to add the three policy rule sets at once:
+
+`https://raw.githubusercontent.com/libraprince/Karingset/main/karing/Karingset-Diversion.json`
+
+It contains:
+
+- `reject.srs` → BLOCK
+- `direct.srs` → DIRECT
+- `proxy.srs` → CURRENT SELECTED
+
+The three `.srs` files remain remote resources, so Karing can update them independently without rebuilding the preset. Karing supports remote `.srs` / `.json` Rule Sets.
+
+## Direct Rule Set URLs
 
 `https://raw.githubusercontent.com/libraprince/Karingset/main/srs/proxy.srs`
 
@@ -24,14 +36,20 @@ After the repository is made **Public**, use:
 
 `https://raw.githubusercontent.com/libraprince/Karingset/main/srs/reject.srs`
 
+## Important
+
+Karing currently does not support a `rule-set=` parameter in `karing://install-config`. That feature has been proposed upstream but is not currently available. Therefore the recommended one-file entry is the Karing diversion JSON preset above rather than a fake `karing://` link.
+
+For a complete proxy configuration, import your normal subscription first, then import/apply the Karingset diversion preset. The preset does not contain proxy nodes.
+
 Recommended Karing routing order:
 
 1. LAN → DIRECT
 2. China / China Apps → DIRECT
-3. `direct.srs` → DIRECT
-4. `proxy.srs` → PROXY
-5. `reject.srs` → REJECT
-6. FINAL → PROXY
+3. `reject.srs` → BLOCK
+4. `direct.srs` → DIRECT
+5. `proxy.srs` → CURRENT SELECTED
+6. FINAL → according to your Karing default
 
 For China IP matching, use Karing's `ChinaIp.srs` rather than trying to convert Shadowrocket's `GEOIP,CN` line into a domain rule set.
 
