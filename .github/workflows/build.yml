@@ -1,5 +1,6 @@
 name: Build Karing SRS
 
+# Compile only valid sing-box source rule sets; metadata JSON is skipped.
 on:
   workflow_dispatch:
   push:
