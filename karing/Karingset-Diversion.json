@@ -1,0 +1,31 @@
+{
+  "rules": [
+    {
+      "outbound": "block",
+      "name": "🚫 Karingset Reject",
+      "switch": true,
+      "or": false,
+      "rule_set": [
+        "https://raw.githubusercontent.com/libraprince/Karingset/main/srs/reject.srs"
+      ]
+    },
+    {
+      "outbound": "direct",
+      "name": "🇨🇳 Karingset Direct",
+      "switch": true,
+      "or": false,
+      "rule_set": [
+        "https://raw.githubusercontent.com/libraprince/Karingset/main/srs/direct.srs"
+      ]
+    },
+    {
+      "outbound": "currentSelected",
+      "name": "🌐 Karingset Proxy",
+      "switch": true,
+      "or": false,
+      "rule_set": [
+        "https://raw.githubusercontent.com/libraprince/Karingset/main/srs/proxy.srs"
+      ]
+    }
+  ]
+}
