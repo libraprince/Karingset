@@ -41,6 +41,26 @@ jobs:
       - name: Generate source JSON
         run: python scripts/build.py
 
+      - name: Validate rule quality
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          m = json.loads(Path('source/manifest.json').read_text(encoding='utf-8'))
+          q = m.get('quality', {})
+          conflicts = q.get('conflicts', {})
+          anomalies = q.get('anomalies', [])
+          print('Rule conflicts:', conflicts or 'none')
+          if anomalies:
+              print('ERROR: abnormal rule-count changes detected:')
+              for item in anomalies:
+                  print(' -', item)
+              raise SystemExit(1)
+          print('Rule quality validation passed.')
+          PY
+
       - name: Install pinned sing-box
         shell: bash
         run: |
