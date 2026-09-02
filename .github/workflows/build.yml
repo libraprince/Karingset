@@ -22,7 +22,9 @@ concurrency:
 
 env:
   PYTHON_VERSION: '3.13'
-  SING_BOX_VERSION: '1.14.0'
+  # Karing's own rule-set repository currently builds with sing-box 1.12.12.
+  # Keep our SRS at rule-set source version 3 for broad Karing compatibility.
+  SING_BOX_VERSION: '1.12.12'
 
 jobs:
   build:
@@ -94,7 +96,7 @@ jobs:
               data = json.loads(Path(sys.argv[1]).read_text(encoding='utf-8'))
           except Exception:
               raise SystemExit(1)
-          raise SystemExit(0 if isinstance(data, dict) and data.get('version') == 5 and isinstance(data.get('rules'), list) else 1)
+          raise SystemExit(0 if isinstance(data, dict) and data.get('version') == 3 and isinstance(data.get('rules'), list) else 1)
           PY
             then
               echo "Skipping metadata JSON: $f"
