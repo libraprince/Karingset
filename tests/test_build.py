@@ -30,10 +30,10 @@ class BuildParserTests(unittest.TestCase):
         self.assertTrue(BUILD.add('HOST-WILDCARD,*.example.com', bucket))
         self.assertEqual(bucket['domain_regex'], {'^.*\\.example\\.com$'})
 
-    def test_ip6_cidr_alias(self):
+    def test_ip6_cidr_uses_sing_box_ip_cidr(self):
         bucket = BUILD.empty()
         self.assertTrue(BUILD.add('IP6-CIDR,2001:db8::/32', bucket))
-        self.assertIn('2001:db8::/32', bucket['ip_cidr6'])
+        self.assertIn('2001:db8::/32', bucket['ip_cidr'])
 
 
 if __name__ == '__main__':
