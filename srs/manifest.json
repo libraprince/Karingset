@@ -1,5 +1,5 @@
 {
-  "generator": "Karingset 2.1",
+  "generator": "Karingset 2.2",
   "source": "https://raw.githubusercontent.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever/release/lazy.conf",
   "source_version": 5,
   "services": {
@@ -12,7 +12,9 @@
         "domain": 22,
         "domain_suffix": 23,
         "domain_keyword": 4
-      }
+      },
+      "total": 49,
+      "skipped": {}
     },
     "Amazon": {
       "policy": "PROXY",
@@ -23,6 +25,11 @@
         "domain_suffix": 186,
         "domain_keyword": 1,
         "ip_cidr": 15
+      },
+      "total": 202,
+      "skipped": {
+        "USER-AGENT": 2,
+        "URL-REGEX": 1
       }
     },
     "Apple": {
@@ -36,6 +43,10 @@
         "domain_keyword": 7,
         "domain_regex": 15,
         "ip_cidr": 13
+      },
+      "total": 1858,
+      "skipped": {
+        "USER-AGENT": 23
       }
     },
     "Baidu": {
@@ -45,7 +56,9 @@
       ],
       "counts": {
         "domain_suffix": 251
-      }
+      },
+      "total": 251,
+      "skipped": {}
     },
     "BiliBili": {
       "policy": "DIRECT",
@@ -56,6 +69,10 @@
         "domain": 53,
         "domain_suffix": 62,
         "ip_cidr": 8
+      },
+      "total": 123,
+      "skipped": {
+        "USER-AGENT": 4
       }
     },
     "China": {
@@ -69,6 +86,10 @@
         "domain_keyword": 9,
         "domain_regex": 1,
         "ip_cidr": 21
+      },
+      "total": 3722,
+      "skipped": {
+        "USER-AGENT": 31
       }
     },
     "Claude": {
@@ -79,7 +100,9 @@
       "counts": {
         "domain": 1,
         "domain_suffix": 2
-      }
+      },
+      "total": 3,
+      "skipped": {}
     },
     "Copilot": {
       "policy": "PROXY",
@@ -91,6 +114,10 @@
         "domain_suffix": 26,
         "domain_keyword": 1,
         "ip_cidr": 2
+      },
+      "total": 49,
+      "skipped": {
+        "IP-ASN": 2
       }
     },
     "Disney": {
@@ -100,6 +127,10 @@
       ],
       "counts": {
         "domain_suffix": 172
+      },
+      "total": 172,
+      "skipped": {
+        "USER-AGENT": 1
       }
     },
     "DouBan": {
@@ -109,7 +140,9 @@
       ],
       "counts": {
         "domain_suffix": 3
-      }
+      },
+      "total": 3,
+      "skipped": {}
     },
     "DouYin": {
       "policy": "DIRECT",
@@ -119,7 +152,9 @@
       "counts": {
         "domain": 2,
         "domain_suffix": 11
-      }
+      },
+      "total": 13,
+      "skipped": {}
     },
     "Epic": {
       "policy": "PROXY",
@@ -128,7 +163,9 @@
       ],
       "counts": {
         "domain_suffix": 15
-      }
+      },
+      "total": 15,
+      "skipped": {}
     },
     "Facebook": {
       "policy": "PROXY",
@@ -139,6 +176,10 @@
         "domain_suffix": 544,
         "domain_keyword": 2,
         "ip_cidr": 23
+      },
+      "total": 569,
+      "skipped": {
+        "IP-ASN": 1
       }
     },
     "Game": {
@@ -151,7 +192,9 @@
         "domain_suffix": 539,
         "domain_keyword": 4,
         "ip_cidr": 46
-      }
+      },
+      "total": 597,
+      "skipped": {}
     },
     "Gemini": {
       "policy": "PROXY",
@@ -162,7 +205,9 @@
         "domain": 3,
         "domain_suffix": 7,
         "domain_keyword": 3
-      }
+      },
+      "total": 13,
+      "skipped": {}
     },
     "GitHub": {
       "policy": "PROXY",
@@ -172,7 +217,9 @@
       "counts": {
         "domain_suffix": 30,
         "domain_keyword": 1
-      }
+      },
+      "total": 31,
+      "skipped": {}
     },
     "Global": {
       "policy": "PROXY",
@@ -184,6 +231,10 @@
         "domain_suffix": 34790,
         "domain_keyword": 36,
         "ip_cidr": 116
+      },
+      "total": 35726,
+      "skipped": {
+        "USER-AGENT": 46
       }
     },
     "Google": {
@@ -196,6 +247,10 @@
         "domain_suffix": 684,
         "domain_keyword": 5,
         "ip_cidr": 5
+      },
+      "total": 695,
+      "skipped": {
+        "USER-AGENT": 3
       }
     },
     "HBO": {
@@ -205,6 +260,10 @@
       ],
       "counts": {
         "domain_suffix": 47
+      },
+      "total": 47,
+      "skipped": {
+        "USER-AGENT": 2
       }
     },
     "LAN": {
@@ -216,7 +275,9 @@
         "domain": 7,
         "domain_suffix": 115,
         "ip_cidr": 18
-      }
+      },
+      "total": 140,
+      "skipped": {}
     },
     "Microsoft": {
       "policy": "PROXY",
@@ -227,6 +288,10 @@
         "domain": 1,
         "domain_suffix": 663,
         "domain_keyword": 4
+      },
+      "total": 668,
+      "skipped": {
+        "USER-AGENT": 3
       }
     },
     "NetEaseMusic": {
@@ -238,6 +303,10 @@
         "domain": 1,
         "domain_suffix": 9,
         "ip_cidr": 18
+      },
+      "total": 28,
+      "skipped": {
+        "USER-AGENT": 2
       }
     },
     "Netflix": {
@@ -250,6 +319,10 @@
         "domain_suffix": 30,
         "domain_keyword": 4,
         "ip_cidr": 1119
+      },
+      "total": 1156,
+      "skipped": {
+        "USER-AGENT": 1
       }
     },
     "Nintendo": {
@@ -260,7 +333,9 @@
       "counts": {
         "domain_suffix": 125,
         "ip_cidr": 1
-      }
+      },
+      "total": 126,
+      "skipped": {}
     },
     "OpenAI": {
       "policy": "PROXY",
@@ -272,6 +347,10 @@
         "domain_suffix": 24,
         "domain_keyword": 1,
         "ip_cidr": 2
+      },
+      "total": 34,
+      "skipped": {
+        "IP-ASN": 1
       }
     },
     "PayPal": {
@@ -282,6 +361,10 @@
       "counts": {
         "domain_suffix": 246,
         "domain_keyword": 1
+      },
+      "total": 247,
+      "skipped": {
+        "USER-AGENT": 1
       }
     },
     "Sina": {
@@ -292,7 +375,9 @@
       "counts": {
         "domain_suffix": 107,
         "domain_keyword": 1
-      }
+      },
+      "total": 108,
+      "skipped": {}
     },
     "Sony": {
       "policy": "PROXY",
@@ -302,7 +387,9 @@
       "counts": {
         "domain": 1,
         "domain_suffix": 115
-      }
+      },
+      "total": 116,
+      "skipped": {}
     },
     "Spotify": {
       "policy": "PROXY",
@@ -314,6 +401,10 @@
         "domain_suffix": 20,
         "domain_keyword": 1,
         "ip_cidr": 2
+      },
+      "total": 29,
+      "skipped": {
+        "USER-AGENT": 1
       }
     },
     "Steam": {
@@ -324,7 +415,9 @@
       "counts": {
         "domain_suffix": 51,
         "domain_keyword": 3
-      }
+      },
+      "total": 54,
+      "skipped": {}
     },
     "SteamCN": {
       "policy": "PROXY",
@@ -334,14 +427,18 @@
       "counts": {
         "domain": 12,
         "domain_suffix": 5
-      }
+      },
+      "total": 17,
+      "skipped": {}
     },
     "Streaming": {
       "policy": "PROXY",
       "sources": [],
       "counts": {
         "domain_suffix": 3
-      }
+      },
+      "total": 3,
+      "skipped": {}
     },
     "Telegram": {
       "policy": "PROXY",
@@ -353,6 +450,10 @@
         "domain_suffix": 22,
         "domain_keyword": 1,
         "ip_cidr": 10
+      },
+      "total": 35,
+      "skipped": {
+        "IP-ASN": 5
       }
     },
     "TikTok": {
@@ -364,6 +465,10 @@
         "domain": 4,
         "domain_suffix": 25,
         "domain_keyword": 2
+      },
+      "total": 31,
+      "skipped": {
+        "USER-AGENT": 1
       }
     },
     "WeChat": {
@@ -374,6 +479,11 @@
       "counts": {
         "domain": 18,
         "domain_suffix": 22
+      },
+      "total": 40,
+      "skipped": {
+        "USER-AGENT": 2,
+        "IP-ASN": 1
       }
     },
     "X": {
@@ -385,7 +495,9 @@
         "domain_suffix": 26,
         "domain_keyword": 1,
         "ip_cidr": 6
-      }
+      },
+      "total": 33,
+      "skipped": {}
     },
     "XiaoHongShu": {
       "policy": "DIRECT",
@@ -394,7 +506,9 @@
       ],
       "counts": {
         "domain_suffix": 4
-      }
+      },
+      "total": 4,
+      "skipped": {}
     },
     "YouTube": {
       "policy": "PROXY",
@@ -405,6 +519,10 @@
         "domain_suffix": 179,
         "domain_keyword": 1,
         "ip_cidr": 3
+      },
+      "total": 183,
+      "skipped": {
+        "USER-AGENT": 7
       }
     },
     "Zhihu": {
@@ -415,7 +533,9 @@
       "counts": {
         "domain_suffix": 2,
         "ip_cidr": 5
-      }
+      },
+      "total": 7,
+      "skipped": {}
     }
   },
   "rule_sets": [
@@ -424,266 +544,314 @@
       "url": "https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rule/AI.txt",
       "policy": "PROXY",
       "rules": 49,
-      "skipped": 0
+      "skipped": {}
     },
     {
       "name": "YouTube",
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/YouTube/YouTube.list",
       "policy": "PROXY",
       "rules": 183,
-      "skipped": 7
+      "skipped": {
+        "USER-AGENT": 7
+      }
     },
     {
       "name": "Netflix",
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Netflix/Netflix.list",
       "policy": "PROXY",
       "rules": 1156,
-      "skipped": 1
+      "skipped": {
+        "USER-AGENT": 1
+      }
     },
     {
       "name": "Disney",
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Disney/Disney.list",
       "policy": "PROXY",
       "rules": 172,
-      "skipped": 1
+      "skipped": {
+        "USER-AGENT": 1
+      }
     },
     {
       "name": "HBO",
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/HBO/HBO.list",
       "policy": "PROXY",
       "rules": 47,
-      "skipped": 2
+      "skipped": {
+        "USER-AGENT": 2
+      }
     },
     {
       "name": "Spotify",
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Spotify/Spotify.list",
       "policy": "PROXY",
       "rules": 29,
-      "skipped": 1
+      "skipped": {
+        "USER-AGENT": 1
+      }
     },
     {
       "name": "Telegram",
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Telegram/Telegram.list",
       "policy": "PROXY",
       "rules": 35,
-      "skipped": 5
+      "skipped": {
+        "IP-ASN": 5
+      }
     },
     {
       "name": "PayPal",
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/PayPal/PayPal.list",
       "policy": "PROXY",
       "rules": 247,
-      "skipped": 1
+      "skipped": {
+        "USER-AGENT": 1
+      }
     },
     {
       "name": "X",
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Twitter/Twitter.list",
       "policy": "PROXY",
       "rules": 33,
-      "skipped": 0
+      "skipped": {}
     },
     {
       "name": "Facebook",
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Facebook/Facebook.list",
       "policy": "PROXY",
       "rules": 569,
-      "skipped": 1
+      "skipped": {
+        "IP-ASN": 1
+      }
     },
     {
       "name": "Amazon",
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Amazon/Amazon.list",
       "policy": "PROXY",
       "rules": 202,
-      "skipped": 3
+      "skipped": {
+        "USER-AGENT": 2,
+        "URL-REGEX": 1
+      }
     },
     {
       "name": "Sony",
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Sony/Sony.list",
       "policy": "PROXY",
       "rules": 116,
-      "skipped": 0
+      "skipped": {}
     },
     {
       "name": "Nintendo",
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Nintendo/Nintendo.list",
       "policy": "PROXY",
       "rules": 126,
-      "skipped": 0
+      "skipped": {}
     },
     {
       "name": "Epic",
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Epic/Epic.list",
       "policy": "PROXY",
       "rules": 15,
-      "skipped": 0
+      "skipped": {}
     },
     {
       "name": "SteamCN",
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/SteamCN/SteamCN.list",
       "policy": "PROXY",
       "rules": 17,
-      "skipped": 0
+      "skipped": {}
     },
     {
       "name": "Steam",
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Steam/Steam.list",
       "policy": "PROXY",
       "rules": 54,
-      "skipped": 0
+      "skipped": {}
     },
     {
       "name": "Game",
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Game/Game.list",
       "policy": "PROXY",
       "rules": 597,
-      "skipped": 0
+      "skipped": {}
     },
     {
       "name": "GitHub",
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/GitHub/GitHub.list",
       "policy": "PROXY",
       "rules": 31,
-      "skipped": 0
+      "skipped": {}
     },
     {
       "name": "Microsoft",
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Microsoft/Microsoft.list",
       "policy": "PROXY",
       "rules": 668,
-      "skipped": 3
+      "skipped": {
+        "USER-AGENT": 3
+      }
     },
     {
       "name": "Google",
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Google/Google.list",
       "policy": "PROXY",
       "rules": 695,
-      "skipped": 3
+      "skipped": {
+        "USER-AGENT": 3
+      }
     },
     {
       "name": "Apple",
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Apple/Apple.list",
       "policy": "DIRECT",
       "rules": 1858,
-      "skipped": 23
+      "skipped": {
+        "USER-AGENT": 23
+      }
     },
     {
       "name": "BiliBili",
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/BiliBili/BiliBili.list",
       "policy": "DIRECT",
       "rules": 123,
-      "skipped": 4
+      "skipped": {
+        "USER-AGENT": 4
+      }
     },
     {
       "name": "NetEaseMusic",
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/NetEaseMusic/NetEaseMusic.list",
       "policy": "DIRECT",
       "rules": 28,
-      "skipped": 2
+      "skipped": {
+        "USER-AGENT": 2
+      }
     },
     {
       "name": "Baidu",
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Baidu/Baidu.list",
       "policy": "DIRECT",
       "rules": 251,
-      "skipped": 0
+      "skipped": {}
     },
     {
       "name": "DouBan",
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/DouBan/DouBan.list",
       "policy": "DIRECT",
       "rules": 3,
-      "skipped": 0
+      "skipped": {}
     },
     {
       "name": "WeChat",
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/WeChat/WeChat.list",
       "policy": "DIRECT",
       "rules": 40,
-      "skipped": 3
+      "skipped": {
+        "USER-AGENT": 2,
+        "IP-ASN": 1
+      }
     },
     {
       "name": "Sina",
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Sina/Sina.list",
       "policy": "DIRECT",
       "rules": 108,
-      "skipped": 0
+      "skipped": {}
     },
     {
       "name": "Zhihu",
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Zhihu/Zhihu.list",
       "policy": "DIRECT",
       "rules": 7,
-      "skipped": 0
+      "skipped": {}
     },
     {
       "name": "XiaoHongShu",
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/XiaoHongShu/XiaoHongShu.list",
       "policy": "DIRECT",
       "rules": 4,
-      "skipped": 0
+      "skipped": {}
     },
     {
       "name": "DouYin",
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/DouYin/DouYin.list",
       "policy": "DIRECT",
       "rules": 13,
-      "skipped": 0
+      "skipped": {}
     },
     {
       "name": "TikTok",
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/TikTok/TikTok.list",
       "policy": "PROXY",
       "rules": 31,
-      "skipped": 1
+      "skipped": {
+        "USER-AGENT": 1
+      }
     },
     {
       "name": "Global",
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Global/Global.list",
       "policy": "PROXY",
       "rules": 35726,
-      "skipped": 46
+      "skipped": {
+        "USER-AGENT": 46
+      }
     },
     {
       "name": "China",
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/China/China.list",
       "policy": "DIRECT",
       "rules": 3722,
-      "skipped": 31
+      "skipped": {
+        "USER-AGENT": 31
+      }
     },
     {
       "name": "LAN",
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Lan/Lan.list",
       "policy": "DIRECT",
       "rules": 140,
-      "skipped": 0
+      "skipped": {}
     },
     {
       "name": "OpenAI",
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/OpenAI/OpenAI.list",
       "policy": "PROXY",
       "rules": 34,
-      "skipped": 1
+      "skipped": {
+        "IP-ASN": 1
+      }
     },
     {
       "name": "Gemini",
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Gemini/Gemini.list",
       "policy": "PROXY",
       "rules": 13,
-      "skipped": 0
+      "skipped": {}
     },
     {
       "name": "Claude",
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Claude/Claude.list",
       "policy": "PROXY",
       "rules": 3,
-      "skipped": 0
+      "skipped": {}
     },
     {
       "name": "Copilot",
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Copilot/Copilot.list",
       "policy": "PROXY",
       "rules": 49,
-      "skipped": 2
+      "skipped": {
+        "IP-ASN": 2
+      }
     }
-  ]
+  ],
+  "quality": {
+    "conflicts": {
+      "direct_vs_proxy": 1522
+    },
+    "anomalies": []
+  }
 }
