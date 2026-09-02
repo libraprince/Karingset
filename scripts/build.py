@@ -23,7 +23,7 @@ EXTRA = {
     'Copilot': ('https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Copilot/Copilot.list', 'PROXY'),
 }
 ALIASES = {'Twitter': 'X', 'Lan': 'LAN'}
-KEYS = ('domain', 'domain_suffix', 'domain_keyword', 'domain_regex', 'ip_cidr', 'ip_cidr6')
+KEYS = ('domain', 'domain_suffix', 'domain_keyword', 'domain_regex', 'ip_cidr')
 
 
 def empty():
@@ -54,7 +54,7 @@ def add(line, bucket):
             bucket['ip_cidr'].add(s)
             return True
         if ':' in s and re.fullmatch(r'[0-9A-Fa-f:]+(?:/\d{1,3})?', s):
-            bucket['ip_cidr6'].add(s)
+            bucket['ip_cidr'].add(s)
             return True
         if re.fullmatch(r'[A-Za-z0-9*_.-]+\.[A-Za-z]{2,}', s):
             bucket['domain_suffix'].add(s.lstrip('*.').lower())
@@ -84,7 +84,7 @@ def add(line, bucket):
         bucket['domain_regex'].add('^' + re.escape(value).replace(r'\*', '.*').replace(r'\?', '.') + '$')
         return True
     if typ in ('IP-CIDR', 'IP-CIDR6', 'IP6-CIDR'):
-        bucket['ip_cidr' if typ == 'IP-CIDR' else 'ip_cidr6'].add(value)
+        bucket['ip_cidr'].add(value)
         return True
     return False
 
@@ -200,12 +200,12 @@ def main():
             if policy and parts[1] not in seen:
                 seen.add(parts[1])
                 bucket = empty()
+                service_name = name(parts[1])
                 try:
                     for domain in get(parts[1]).splitlines():
                         domain = domain.strip()
                         if domain and not domain.startswith('#'):
                             bucket['domain_suffix'].add(domain.lstrip('.').lower())
-                    service_name = name(parts[1])
                     services[service_name] = {
                         'policy': policy,
                         'bucket': bucket,
