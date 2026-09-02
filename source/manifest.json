@@ -34,7 +34,8 @@
         "domain": 272,
         "domain_suffix": 1551,
         "domain_keyword": 7,
-        "ip_cidr": 10
+        "domain_regex": 15,
+        "ip_cidr": 13
       }
     },
     "Baidu": {
@@ -66,7 +67,8 @@
         "domain": 17,
         "domain_suffix": 3674,
         "domain_keyword": 9,
-        "ip_cidr": 17
+        "domain_regex": 1,
+        "ip_cidr": 21
       }
     },
     "Claude": {
@@ -181,7 +183,7 @@
         "domain": 784,
         "domain_suffix": 34790,
         "domain_keyword": 36,
-        "ip_cidr": 112
+        "ip_cidr": 116
       }
     },
     "Google": {
@@ -561,8 +563,8 @@
       "name": "Apple",
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Apple/Apple.list",
       "policy": "DIRECT",
-      "rules": 1840,
-      "skipped": 41
+      "rules": 1858,
+      "skipped": 23
     },
     {
       "name": "BiliBili",
@@ -638,15 +640,15 @@
       "name": "Global",
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Global/Global.list",
       "policy": "PROXY",
-      "rules": 35722,
-      "skipped": 50
+      "rules": 35726,
+      "skipped": 46
     },
     {
       "name": "China",
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/China/China.list",
       "policy": "DIRECT",
-      "rules": 3717,
-      "skipped": 36
+      "rules": 3722,
+      "skipped": 31
     },
     {
       "name": "LAN",
