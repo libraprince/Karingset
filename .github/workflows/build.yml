@@ -5,6 +5,7 @@ on:
   push:
     paths:
       - 'scripts/**'
+      - 'tests/**'
       - '.github/workflows/build.yml'
       - 'README.md'
   schedule:
@@ -14,27 +15,38 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: karingset-build
+  cancel-in-progress: false
+
+env:
+  PYTHON_VERSION: '3.13'
+  SING_BOX_VERSION: '1.14.0'
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7
         with:
-          python-version: '3.x'
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Test parser
+        run: python -m unittest discover -s tests -v
 
       - name: Generate source JSON
         run: python scripts/build.py
 
-      - name: Install latest sing-box
+      - name: Install pinned sing-box
         shell: bash
         run: |
           set -euo pipefail
-          tag=$(curl -fsSL https://api.github.com/repos/SagerNet/sing-box/releases/latest | jq -r .tag_name)
-          version=${tag#v}
+          version="${SING_BOX_VERSION}"
+          tag="v${version}"
           asset="sing-box-${version}-linux-amd64.tar.gz"
           curl -fL "https://github.com/SagerNet/sing-box/releases/download/${tag}/${asset}" -o /tmp/sing-box.tgz
           tar -xzf /tmp/sing-box.tgz -C /tmp
