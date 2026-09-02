@@ -14,7 +14,7 @@ SRC.mkdir(exist_ok=True)
 SRS.mkdir(exist_ok=True)
 
 LAZY = 'https://raw.githubusercontent.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever/release/lazy.conf'
-UA = 'Karingset/2.2 (+https://github.com/libraprince/Karingset)'
+UA = 'Karingset/2.3 (+https://github.com/libraprince/Karingset)'
 POLICIES = {'PROXY', 'DIRECT', 'REJECT'}
 EXTRA = {
     'OpenAI': ('https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/OpenAI/OpenAI.list', 'PROXY'),
@@ -120,7 +120,7 @@ def parse(text):
 
 def write(name_, bucket):
     rules = {key: sorted(value) for key, value in bucket.items() if value}
-    output = {'version': 5, 'rules': [rules] if rules else []}
+    output = {'version': 3, 'rules': [rules] if rules else []}
     (SRC / f'{name_}.json').write_text(
         json.dumps(output, ensure_ascii=False, indent=2) + '\n',
         encoding='utf-8',
@@ -276,7 +276,7 @@ def main():
 
     (SRC / 'conflicts.json').write_text(
         json.dumps({
-            'generator': 'Karingset 2.2',
+            'generator': 'Karingset 2.3',
             'summary': {key: len(value) for key, value in conflicts.items()},
             'conflicts': conflicts,
         }, ensure_ascii=False, indent=2) + '\n',
@@ -307,9 +307,9 @@ def main():
         write(policy.lower(), bucket)
 
     manifest = {
-        'generator': 'Karingset 2.2',
+        'generator': 'Karingset 2.3',
         'source': LAZY,
-        'source_version': 5,
+        'source_version': 3,
         'services': {
             service_name: {
                 'policy': service['policy'],
