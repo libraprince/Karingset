@@ -82,9 +82,24 @@ jobs:
           shopt -s nullglob
           for f in source/*.json; do
             name=$(basename "$f" .json)
-            case "$name" in
-              manifest) continue ;;
-            esac
+            # source/manifest.json and diagnostic JSON such as conflicts.json are
+            # metadata, not sing-box source rule sets. Only compile files that
+            # actually contain a rule-set version and rules array.
+            if ! python - "$f" <<'PY'
+          import json
+          import sys
+          from pathlib import Path
+          try:
+              data = json.loads(Path(sys.argv[1]).read_text(encoding='utf-8'))
+          except Exception:
+              raise SystemExit(1)
+          raise SystemExit(0 if isinstance(data, dict) and data.get('version') == 5 and isinstance(data.get('rules'), list) else 1)
+          PY
+            then
+              echo "Skipping metadata JSON: $f"
+              continue
+            fi
+            echo "Compiling: $f"
             sing-box rule-set compile --output "srs/${name}.srs" "$f"
           done
           cp source/manifest.json srs/manifest.json
