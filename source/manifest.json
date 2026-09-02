@@ -1,7 +1,7 @@
 {
-  "generator": "Karingset 2.2",
+  "generator": "Karingset 2.3",
   "source": "https://raw.githubusercontent.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever/release/lazy.conf",
-  "source_version": 5,
+  "source_version": 3,
   "services": {
     "AI": {
       "policy": "PROXY",
