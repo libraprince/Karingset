@@ -16,6 +16,7 @@
     {"outbound":"currentSelected","name":"🟣 Claude","switch":true,"or":false,"rule_set":["https://raw.githubusercontent.com/libraprince/Karingset/main/srs/Claude.srs"]},
     {"outbound":"currentSelected","name":"🟢 Gemini","switch":true,"or":false,"rule_set":["https://raw.githubusercontent.com/libraprince/Karingset/main/srs/Gemini.srs"]},
     {"outbound":"currentSelected","name":"🟢 OpenAI","switch":true,"or":false,"rule_set":["https://raw.githubusercontent.com/libraprince/Karingset/main/srs/OpenAI.srs"]},
+    {"outbound":"currentSelected","name":"🤖 Copilot","switch":true,"or":false,"rule_set":["https://raw.githubusercontent.com/libraprince/Karingset/main/srs/Copilot.srs"]},
     {"outbound":"currentSelected","name":"💻 GitHub","switch":true,"or":false,"rule_set":["https://raw.githubusercontent.com/libraprince/Karingset/main/srs/GitHub.srs"]},
     {"outbound":"currentSelected","name":"𝕏 X / Twitter","switch":true,"or":false,"rule_set":["https://raw.githubusercontent.com/libraprince/Karingset/main/srs/X.srs"]},
     {"outbound":"currentSelected","name":"▶️ YouTube","switch":true,"or":false,"rule_set":["https://raw.githubusercontent.com/libraprince/Karingset/main/srs/YouTube.srs"]},
