@@ -6,7 +6,7 @@
       "switch": true,
       "or": true,
       "rule_set": [
-        "https://raw.githubusercontent.com/libraprince/Karingset/main/srs/reject.srs"
+        "https://fastly.jsdelivr.net/gh/libraprince/Karingset@main/srs/reject.srs"
       ]
     },
     {
@@ -15,7 +15,7 @@
       "switch": true,
       "or": true,
       "rule_set": [
-        "https://raw.githubusercontent.com/libraprince/Karingset/main/srs/direct.srs"
+        "https://fastly.jsdelivr.net/gh/libraprince/Karingset@main/srs/direct.srs"
       ]
     },
     {
@@ -24,7 +24,7 @@
       "switch": true,
       "or": true,
       "rule_set": [
-        "https://raw.githubusercontent.com/libraprince/Karingset/main/srs/proxy.srs"
+        "https://fastly.jsdelivr.net/gh/libraprince/Karingset@main/srs/proxy.srs"
       ]
     }
   ]
