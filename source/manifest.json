@@ -228,11 +228,11 @@
       ],
       "counts": {
         "domain": 784,
-        "domain_suffix": 34790,
+        "domain_suffix": 34791,
         "domain_keyword": 36,
         "ip_cidr": 116
       },
-      "total": 35726,
+      "total": 35727,
       "skipped": {
         "USER-AGENT": 46
       }
@@ -794,7 +794,7 @@
       "name": "Global",
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Global/Global.list",
       "policy": "PROXY",
-      "rules": 35726,
+      "rules": 35727,
       "skipped": {
         "USER-AGENT": 46
       }
