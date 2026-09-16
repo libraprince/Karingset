@@ -11,9 +11,10 @@
       "counts": {
         "domain": 22,
         "domain_suffix": 23,
-        "domain_keyword": 4
+        "domain_keyword": 4,
+        "domain_regex": 3
       },
-      "total": 49,
+      "total": 52,
       "skipped": {}
     },
     "Amazon": {
@@ -543,7 +544,7 @@
       "name": "AI",
       "url": "https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rule/AI.txt",
       "policy": "PROXY",
-      "rules": 49,
+      "rules": 52,
       "skipped": {}
     },
     {

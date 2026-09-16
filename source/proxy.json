@@ -36286,6 +36286,11 @@
         "wikileaks",
         "youtube"
       ],
+      "domain_regex": [
+        "^.*mask.*\\.apple\\-dns\\.net$",
+        "^.*mask.*\\.icloud\\.com$",
+        "^.*siri.*\\.apple\\.com$"
+      ],
       "ip_cidr": [
         "1.201.0.0/24",
         "101.32.118.0/23",
