@@ -9,12 +9,12 @@
         "https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rule/AI.txt"
       ],
       "counts": {
-        "domain": 22,
-        "domain_suffix": 23,
+        "domain": 24,
+        "domain_suffix": 28,
         "domain_keyword": 4,
         "domain_regex": 3
       },
-      "total": 52,
+      "total": 59,
       "skipped": {}
     },
     "Amazon": {
@@ -544,7 +544,7 @@
       "name": "AI",
       "url": "https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rule/AI.txt",
       "policy": "PROXY",
-      "rules": 52,
+      "rules": 59,
       "skipped": {}
     },
     {
