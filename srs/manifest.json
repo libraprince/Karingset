@@ -228,12 +228,12 @@
         "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Global/Global.list"
       ],
       "counts": {
-        "domain": 793,
-        "domain_suffix": 34835,
+        "domain": 792,
+        "domain_suffix": 34921,
         "domain_keyword": 36,
         "ip_cidr": 119
       },
-      "total": 35783,
+      "total": 35868,
       "skipped": {
         "USER-AGENT": 46
       }
@@ -795,7 +795,7 @@
       "name": "Global",
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Global/Global.list",
       "policy": "PROXY",
-      "rules": 35783,
+      "rules": 35868,
       "skipped": {
         "USER-AGENT": 46
       }
