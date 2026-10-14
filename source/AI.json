@@ -7,6 +7,9 @@
         "aistudio.google.com",
         "alkalicore-pa.clients6.google.com",
         "alkalimakersuite-pa.clients6.google.com",
+        "anthropic-com.ghost.io",
+        "anthropic.auth0.com",
+        "anthropic.com.cdn.cloudflare.net",
         "antigravity-unleash.goog",
         "antigravity.google",
         "api-iam.intercom.io",
@@ -25,6 +28,7 @@
         "o33249.ingest.sentry.io",
         "openaiapi-site.azureedge.net",
         "pplx-res.cloudinary.com",
+        "servd-anthropic-website.b-cdn.net",
         "sydney.bing.com",
         "www.bing.com"
       ],
@@ -32,7 +36,12 @@
         "anthropic.com",
         "chat.com",
         "chatgpt.com",
+        "clau.de",
         "claude.ai",
+        "claude.com",
+        "claudemcpclient.com",
+        "claudemcpcontent.com",
+        "claudeusercontent.com",
         "cursor-cdn.com",
         "cursor.com",
         "cursor.sh",
@@ -56,7 +65,8 @@
         "pplx.ai",
         "smoot.apple.com",
         "sora.com",
-        "x.ai"
+        "x.ai",
+        "zed.dev"
       ],
       "domain_keyword": [
         "labs.google",
