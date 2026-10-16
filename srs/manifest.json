@@ -464,10 +464,10 @@
       ],
       "counts": {
         "domain": 4,
-        "domain_suffix": 25,
+        "domain_suffix": 28,
         "domain_keyword": 2
       },
-      "total": 31,
+      "total": 34,
       "skipped": {
         "USER-AGENT": 1
       }
@@ -786,7 +786,7 @@
       "name": "TikTok",
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/TikTok/TikTok.list",
       "policy": "PROXY",
-      "rules": 31,
+      "rules": 34,
       "skipped": {
         "USER-AGENT": 1
       }
