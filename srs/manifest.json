@@ -228,12 +228,12 @@
         "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Global/Global.list"
       ],
       "counts": {
-        "domain": 792,
-        "domain_suffix": 34928,
+        "domain": 794,
+        "domain_suffix": 34944,
         "domain_keyword": 36,
         "ip_cidr": 119
       },
-      "total": 35875,
+      "total": 35893,
       "skipped": {
         "USER-AGENT": 46
       }
@@ -273,11 +273,11 @@
         "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Lan/Lan.list"
       ],
       "counts": {
-        "domain": 7,
+        "domain": 9,
         "domain_suffix": 115,
         "ip_cidr": 18
       },
-      "total": 140,
+      "total": 142,
       "skipped": {}
     },
     "Microsoft": {
@@ -795,7 +795,7 @@
       "name": "Global",
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Global/Global.list",
       "policy": "PROXY",
-      "rules": 35875,
+      "rules": 35893,
       "skipped": {
         "USER-AGENT": 46
       }
@@ -813,7 +813,7 @@
       "name": "LAN",
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Lan/Lan.list",
       "policy": "DIRECT",
-      "rules": 140,
+      "rules": 142,
       "skipped": {}
     },
     {
