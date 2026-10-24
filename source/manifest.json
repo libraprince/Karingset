@@ -190,11 +190,11 @@
       ],
       "counts": {
         "domain": 8,
-        "domain_suffix": 539,
+        "domain_suffix": 542,
         "domain_keyword": 4,
-        "ip_cidr": 46
+        "ip_cidr": 58
       },
-      "total": 597,
+      "total": 612,
       "skipped": {}
     },
     "Gemini": {
@@ -228,12 +228,12 @@
         "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Global/Global.list"
       ],
       "counts": {
-        "domain": 794,
-        "domain_suffix": 34944,
+        "domain": 798,
+        "domain_suffix": 34994,
         "domain_keyword": 36,
         "ip_cidr": 119
       },
-      "total": 35893,
+      "total": 35947,
       "skipped": {
         "USER-AGENT": 46
       }
@@ -414,10 +414,11 @@
         "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Steam/Steam.list"
       ],
       "counts": {
-        "domain_suffix": 51,
-        "domain_keyword": 3
+        "domain_suffix": 54,
+        "domain_keyword": 3,
+        "ip_cidr": 12
       },
-      "total": 54,
+      "total": 69,
       "skipped": {}
     },
     "SteamCN": {
@@ -668,14 +669,14 @@
       "name": "Steam",
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Steam/Steam.list",
       "policy": "PROXY",
-      "rules": 54,
+      "rules": 69,
       "skipped": {}
     },
     {
       "name": "Game",
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Game/Game.list",
       "policy": "PROXY",
-      "rules": 597,
+      "rules": 612,
       "skipped": {}
     },
     {
@@ -795,7 +796,7 @@
       "name": "Global",
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Global/Global.list",
       "policy": "PROXY",
-      "rules": 35893,
+      "rules": 35947,
       "skipped": {
         "USER-AGENT": 46
       }
