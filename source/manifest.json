@@ -40,12 +40,12 @@
       ],
       "counts": {
         "domain": 272,
-        "domain_suffix": 1551,
+        "domain_suffix": 1550,
         "domain_keyword": 7,
         "domain_regex": 15,
         "ip_cidr": 13
       },
-      "total": 1858,
+      "total": 1857,
       "skipped": {
         "USER-AGENT": 23
       }
@@ -229,11 +229,11 @@
       ],
       "counts": {
         "domain": 798,
-        "domain_suffix": 34994,
+        "domain_suffix": 35004,
         "domain_keyword": 36,
         "ip_cidr": 119
       },
-      "total": 35947,
+      "total": 35957,
       "skipped": {
         "USER-AGENT": 46
       }
@@ -708,7 +708,7 @@
       "name": "Apple",
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Apple/Apple.list",
       "policy": "DIRECT",
-      "rules": 1858,
+      "rules": 1857,
       "skipped": {
         "USER-AGENT": 23
       }
@@ -796,7 +796,7 @@
       "name": "Global",
       "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/QuantumultX/Global/Global.list",
       "policy": "PROXY",
-      "rules": 35947,
+      "rules": 35957,
       "skipped": {
         "USER-AGENT": 46
       }
