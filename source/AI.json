@@ -69,6 +69,8 @@
         "zed.dev"
       ],
       "domain_keyword": [
+        "anthropic",
+        "claude",
         "labs.google",
         "notebooklm.google",
         "openaiapi",
